@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Emma's Currency Calculator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src= "js/bundle.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <section class="calculator">
+      <h2> Euros to Other Currencies </h2>
+      <form>
+      <input type="number" v-model="convertAmountEuro" />
+
+      <select id="currency" v-model="selectedCurrencyEuro">
+        <option value="" disabled selected></option>
+        <option v-for="(value, key) in currencies" v-bind:value="value">{{ key }}</option>
+      </select>
+      </form>
+      <h1 v-if="convertEuros > 0"> {{convertEuros | round}} </h1>
+      </section>
+
+      <section class="calculator">
+      <h2> Other Currencies to Euros </h2>
+
+      <input type="number" v-model="convertAmountOther" />
+
+      <select id="currency" v-model="selectedCurrencyOther">
+        <option value="" disabled selected></option>
+        <option v-for="(value, key) in currencies" v-bind:value="value">{{ key }}</option>
+      </select>
+
+      <h1 v-if="convertOthers > 0" > {{convertOthers | round}} </h1>
+      </section>
+
+
+      <section class="calculator">
+      <h2> Cross Currency Exchange </h2>
+
+      <input type="number" v-model="convertAmountCross" />
+
+      <select id="currency" v-model="firstSelectedCurrencyCross">
+        <option value="" disabled selected></option>
+        <option v-for="(value, key) in currencies" v-bind:value="value">{{ key }}</option>
+      </select>
+
+      <span>To</span>
+
+      <select id="currency" v-model="secondSelectedCurrencyCross">
+        <option value="" disabled selected></option>
+        <option v-for="(value, key) in currencies" v-bind:value="value">{{ key }}</option>
+      </select>
+
+
+      <h1 v-if="convertCross > 0" > {{convertCross | round}}  </h1>
+      </section>
+
+    </div>
+  </body>
+</html>
