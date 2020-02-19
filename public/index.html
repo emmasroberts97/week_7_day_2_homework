@@ -31,7 +31,9 @@
         <option v-for="(value, key) in currencies" v-bind:value="value">{{ key }}</option>
       </select>
 
+     <div v-if="selectedCurrencyOther">
       <h1 v-if="convertOthers > 0" > {{convertOthers | round}} </h1>
+    </div>
       </section>
 
 
